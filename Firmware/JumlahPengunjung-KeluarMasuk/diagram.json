@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Adam Damara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 32.8,
+      "left": -56.5,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -13,
+      "left": -86.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -61,
+      "left": -86.4,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "rgb1:COM", "esp:GND.1", "black", [ "v0" ] ],
+    [ "rgb1:R", "esp:25", "red", [ "v0" ] ],
+    [ "rgb1:G", "esp:26", "green", [ "v0" ] ],
+    [ "rgb1:B", "esp:27", "blue", [ "v0" ] ],
+    [ "btn1:2.r", "esp:33", "violet", [ "h9.8", "v77" ] ],
+    [ "btn1:1.r", "esp:GND.2", "black", [ "v0", "h134.6", "v28.8" ] ],
+    [ "btn2:2.l", "esp:14", "violet", [ "h-19.2", "v163.4" ] ],
+    [ "btn2:1.r", "esp:GND.2", "black", [ "v0", "h134.6", "v76.8" ] ]
+  ],
+  "dependencies": {}
+}
